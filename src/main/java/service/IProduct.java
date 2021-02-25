@@ -14,5 +14,5 @@ public interface IProduct {
 
     Product create(Product product);
 
-    Product findByName(String search);
+    List<Product> findByName(String name);
 }

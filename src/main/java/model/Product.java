@@ -1,5 +1,8 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Product {
     private int id;
     private String name;
@@ -9,37 +12,27 @@ public class Product {
     private String description;
     private int categoryID;
 
-    public Product(int id, String name, int price, int quantity, String color,String description, int categoryID) {
+    public Product(String name, int price, int quantity, String description, String color, int categoryId) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.color = color;
+        this.description = description;
+        this.categoryID= categoryId;
+    }
+
+    public Product(int id, String name, int price, int quantity, String color, String description, int categoryId) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.color = color;
         this.description = description;
-        this.categoryID = categoryID;
+        this.categoryID= categoryId;
     }
 
 
-    public Product(String name, int price, int quantity, String color, String description) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.color = color;
-        this.description = description;
-    }
 
-    public Product(String name, int price, int quantity, String color, String description, int categoryId) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-        this.color = color;
-        this.description = description;
-        this.categoryID = categoryId;
-    }
-
-    public Product(String name, String price, String quantity, String color, String description, String category) {
-
-    }
 
     public int getId() {
         return id;
@@ -101,9 +94,4 @@ public class Product {
         this.categoryID = categoryID;
     }
 
-    public void setCategory(int category) {
-        this.categoryID = category;
-
-
-    }
 }

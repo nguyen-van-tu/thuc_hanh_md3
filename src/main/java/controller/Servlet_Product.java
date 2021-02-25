@@ -37,16 +37,33 @@ public class Servlet_Product extends HttpServlet {
             case "delete":
                 showDeleteForm(request, response);
                 break;
+            case "search":
+                searchByName(request, response);
+                break;
             default:
                 showFindAll(request, response);
                 break;
         }
     }
 
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        List<Product> products = productService.findByName(name);
+        request.setAttribute("p", products);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/product/list.jsp");
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void showFindAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<ProductView> products = productService.findAll();
         request.setAttribute("p", products);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -57,7 +74,7 @@ public class Servlet_Product extends HttpServlet {
         ICategory iCategory = new CategoryService();
         List<Category> lists = iCategory.getAll();
         request.setAttribute("lists", lists);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/delete.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/delete.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -65,7 +82,7 @@ public class Servlet_Product extends HttpServlet {
     private void showEditForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         Product product = productService.findById(id);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/edit.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("product/edit.jsp");
         req.setAttribute("product", product);
         requestDispatcher.forward(req, resp);
     }
@@ -75,7 +92,7 @@ public class Servlet_Product extends HttpServlet {
         List<Category> lists = iProduct.getAll();
         request.setAttribute("lists", lists);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/create.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -95,7 +112,6 @@ public class Servlet_Product extends HttpServlet {
             case "delete":
                 deleteProduct(request, response);
                 break;
-
             default:
                 break;
         }
@@ -118,7 +134,7 @@ public class Servlet_Product extends HttpServlet {
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         Product product = new Product(id, name, price, quantity, color, description, categoryId);
         productService.edit(product);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/edit.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("product/edit.jsp");
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
