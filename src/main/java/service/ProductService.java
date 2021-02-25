@@ -63,25 +63,6 @@ public class ProductService implements IProduct {
         return products;
     }
 
-//    @Override
-//    public Product create(int id, Product product) {
-//        Connection connection = getConnection();
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement("insert into list_product(name, price, quantity, color, description, category_id) value (?,?,?,?,?,?) ;");
-//
-//            preparedStatement.setString(1, product.getName());
-//            preparedStatement.setInt(2, (int) product.getPrice());
-//            preparedStatement.setInt(3, product.getQuantity());
-//            preparedStatement.setString(4, product.getColor());
-//            preparedStatement.setString(5, product.getDescription());
-//            preparedStatement.setInt(6, product.getCategoryID());
-//            preparedStatement.executeUpdate();
-//
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
-//        return product;
-//    }
 
     @Override
     public boolean edit(Product product) {

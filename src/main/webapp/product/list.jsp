@@ -10,9 +10,13 @@
 <html>
 <head>
     <title>List Product</title>
+    <link rel="stylesheet" href="ribbon-content.css">
 </head>
 <body>
-<h1>List Product</h1>
+<center>
+    <h1 class="ribbon">
+        <strong class="ribbon-content">List Product</strong>
+    </h1>
 
 <form method="post">
 
@@ -21,7 +25,7 @@
     <input type="submit" value="Tìm kiếm">
 </form>
 
-<button><a href="/product?action=create">Create New Product</a></button><br><br>
+<button><a style="text-decoration: none" href="/product?action=create">Create New Product</a></button><br><br>
 
 <table border="1px" style="width: 50% ; height: 200px" >
     <tr style="background-color: yellow">
@@ -42,10 +46,12 @@
             <td>${product.getColor()}</td>
             <td>${product.getDescription()}</td>
             <td>${product.getCategoryName()}</td>
-            <td style="background-color: red"><a href="/product?action=edit&id=${product.getId()}">Edit</a></td>
-            <td style="background-color: red"><a href="/product?action=delete&id=${product.getId()}">Delete</a></td>
+            <td style="background-color: deepskyblue " ><a style="text-decoration: none" href="/product?action=edit&id=${product.getId()}">Edit</a></td>
+            <td style="background-color: red ; text-decoration: none"><a style="text-decoration: none" href="/product?action=delete&id=${product.getId()}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
+</center>
+
 </body>
 </html>

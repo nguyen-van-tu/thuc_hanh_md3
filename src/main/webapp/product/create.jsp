@@ -9,14 +9,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Create</title>
 </head>
 <body>
 <form method="post">
 
     <center>
+        <h1 class="ribbon">
+            <strong class="ribbon-content">Create Product</strong>
+        </h1>
         <h2>ADD PRODUCT</h2>
-        <a href="/product">BACK</a>
         <table>
             <tbody>
             <tr>

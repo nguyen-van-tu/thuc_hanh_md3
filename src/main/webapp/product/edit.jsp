@@ -9,10 +9,15 @@
 <html>
 <head>
     <title>Edit Product</title>
+    <link rel="stylesheet" href="ribbon-content.css">
+
 </head>
 <body>
-<h1>Edit product</h1>
-<form method="post">
+<center>
+    <h1 class="ribbon">
+        <strong class="ribbon-content">Create Product</strong>
+    </h1>
+    <form method="post">
     <a href="/product">List product</a>
     <table>
         <tr>
@@ -44,5 +49,7 @@
         </tr>
     </table>
 </form>
+</center>
+
 </body>
 </html>

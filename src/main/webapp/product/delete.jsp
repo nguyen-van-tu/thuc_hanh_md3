@@ -9,11 +9,18 @@
 <html>
 <head>
     <title>Delete product</title>
+    <link rel="stylesheet" href="ribbon-content.css">
+
 </head>
-<body>
-<h1>Delete product</h1>
+<body><center>
+
+    <h1 class="ribbon">
+        <strong class="ribbon-content">Delete Product</strong>
+    </h1>
 <form method="post">
+    <h1>Bạn muốn xóa sảm phẩm ??</h1>
 <input type="submit" value="Delete">
 </form>
+</center>
 </body>
 </html>
